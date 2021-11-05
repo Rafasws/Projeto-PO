@@ -38,6 +38,8 @@ public class Warehouse implements Serializable {
   /** Map of products, key is id product, value is a Product */
   private LinkedHashMap<String, Product> _products = new LinkedHashMap<>();
 
+  private List<Transaction> _transactions = new ArrayList<>();
+
   
 
 

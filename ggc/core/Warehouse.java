@@ -8,6 +8,7 @@ import java.io.IOException;
 import ggc.app.exception.DuplicatePartnerKeyException;
 import ggc.app.exception.InvalidDateException;
 import ggc.app.exception.UnknownPartnerKeyException;
+import ggc.app.exception.UnknownTransactionKeyException;
 import ggc.core.exception.BadEntryException;
 import ggc.core.exception.UnavailableFileException;
 
@@ -249,5 +250,16 @@ public class Warehouse implements Serializable {
   public void registerAcquisition(String idPartner, String idProduct, Double price, int amount){
     Acquisition a = new Acquisition(_transactions.size(), _products.get(idProduct),_partners.get(idPartner), amount);
     _transactions.add(a);
+  }
+
+  public String showTransaction(int id) throws UnknownTransactionKeyException {
+    try{
+    Transaction t =_transactions.get(id);
+    return t.toString();
+    }
+    catch (IndexOutOfBoundsException e) {
+      throw new UnknownTransactionKeyException(id);
+    }
+    
   }
 }

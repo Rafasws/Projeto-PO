@@ -24,6 +24,7 @@ import ggc.app.exception.FileOpenFailedException;
 import ggc.app.exception.InvalidDateException;
 import ggc.app.exception.UnknownPartnerKeyException;
 import ggc.app.exception.UnknownProductKeyException;
+import ggc.app.exception.UnknownTransactionKeyException;
 
 /** Façade for access. */
 public class WarehouseManager implements Serializable {
@@ -165,6 +166,10 @@ public class WarehouseManager implements Serializable {
 
   public void registerAcquisition(String idPartner, String idProduct, Double price, int amount){
     _warehouse.registerAcquisition(idPartner, idProduct, price, amount);
+  }
+
+  public String showTransaction(int id) throws UnknownTransactionKeyException {
+    return _warehouse.showTransaction(id);
   }
 
 

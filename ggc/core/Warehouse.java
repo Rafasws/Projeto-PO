@@ -244,6 +244,10 @@ public class Warehouse implements Serializable {
       }
     }
     return str;
+  }
 
+  public void registerAcquisition(String idPartner, String idProduct, Double price, int amount){
+    Acquisition a = new Acquisition(_transactions.size(), _products.get(idProduct),_partners.get(idPartner), amount);
+    _transactions.add(a);
   }
 }

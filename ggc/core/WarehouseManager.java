@@ -3,6 +3,7 @@ package ggc.core;
 //FIXME import classes (cannot import from pt.tecnico or ggc.app)
 
 import java.io.Serializable;
+import java.util.LinkedHashMap;
 import java.io.IOException;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -22,6 +23,7 @@ import ggc.app.exception.DuplicatePartnerKeyException;
 import ggc.app.exception.FileOpenFailedException;
 import ggc.app.exception.InvalidDateException;
 import ggc.app.exception.UnknownPartnerKeyException;
+import ggc.app.exception.UnknownProductKeyException;
 
 /** Façade for access. */
 public class WarehouseManager implements Serializable {
@@ -141,16 +143,29 @@ public class WarehouseManager implements Serializable {
     return _warehouse.showAllProducts();
   }
 
-  public String showBatchesByPartner(String id){
+  public String showBatchesByPartner(String id) throws UnknownPartnerKeyException {
     return _warehouse.showBatchesByPartner(id);
   }
 
-  public String showBatchesByProduct(String id){
+  public String showBatchesByProduct(String id) throws UnknownProductKeyException {
     return _warehouse.showBatchesByProduct(id);
   }
 
   public String showBatchesPrice(Double price){
     return _warehouse.showBatchesPrice(price);
   }
+
+  public LinkedHashMap<String, Product> getProducts(){
+    return _warehouse.getMapOfProducts();
+  }
+
+  public LinkedHashMap<String, Partner> getPartners(){
+    return _warehouse.getMapOfPartners();
+  }
+
+  public void registerAcquisition(String idPartner, String idProduct, Double price, int amount){
+    _warehouse.registerAcquisition(idPartner, idProduct, price, amount);
+  }
+
 
 }

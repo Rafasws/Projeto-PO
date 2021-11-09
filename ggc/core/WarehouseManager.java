@@ -172,5 +172,9 @@ public class WarehouseManager implements Serializable {
     return _warehouse.showTransaction(id);
   }
 
+  public String showTransactionsPaid(String partnerId) {
+    return _warehouse.showTransactionsPaid(partnerId);
+  }
+
 
 }

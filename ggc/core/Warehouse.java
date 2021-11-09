@@ -262,4 +262,14 @@ public class Warehouse implements Serializable {
     }
     
   }
+
+  public String showTransactionsPaid(String partnerId) {
+    String str = "";
+    for (Transaction t: _transactions){
+      if (t.getPartner().getId().equals(partnerId) && t.isPaid()){
+        str = str + t.toString();
+      }
+    }
+    return str;
+  }
 }

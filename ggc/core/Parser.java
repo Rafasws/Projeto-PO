@@ -1,10 +1,8 @@
 package ggc.core;
 
 import java.io.IOException;
-import java.io.StreamTokenizer;
 import java.io.FileReader;
 import java.io.BufferedReader;
-import java.io.Reader;
 import java.util.LinkedHashMap;
 
 import ggc.app.exception.DuplicatePartnerKeyException;

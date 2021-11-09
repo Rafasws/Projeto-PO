@@ -15,11 +15,21 @@ public abstract class Transaction implements Serializable{
     protected Date _paymentDate;
     
     protected int _quantity;
+
+    protected boolean _paid;
     
     public Transaction(int id, Product product, Partner partner, int quantity){
         _id = id;
         _product = product;
         _partner = partner;
         _quantity = quantity;
+    }
+
+    public Partner getPartner() {
+        return _partner;
+    }
+
+    public boolean isPaid() {
+        return _paid;
     }
 }
